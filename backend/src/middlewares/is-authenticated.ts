@@ -12,11 +12,11 @@ export const isAuthenticated = async (
     next: NextFunction
 ) => {
     const authToken = req.headers.authorization;
-    let httpResponse = null;
+    let response = null;
     try {
         if (!authToken) {
-            httpResponse = await HttpResponse.unauthorized();
-            res.status(httpResponse.statusCode).end();
+            response = await HttpResponse.unauthorized();
+            res.status(response.statusCode).end();
             return;
         }
 
@@ -28,8 +28,8 @@ export const isAuthenticated = async (
 
         return next();
     } catch (err) {
-        httpResponse = await HttpResponse.unauthorized();
-        res.status(httpResponse.statusCode).end();
+        response = await HttpResponse.unauthorized();
+        res.status(response.statusCode).end();
         return;
     }
 };

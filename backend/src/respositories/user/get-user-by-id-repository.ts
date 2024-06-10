@@ -11,6 +11,7 @@ export const getUserByIdRepository = async (userId: string) => {
             password: true,
             avatar: true,
             name: true,
+            task: true,
         },
     });
 

@@ -12,21 +12,21 @@ export const updateStatusTaskService = async (
         let { status } = statusEnum;
 
         if (!taskId) {
-            response = await HttpResponse.noContent();
+            response = await HttpResponse.badRequest("Missing task ID.");
             return response;
         }
 
         const data = await updateStatusTaskRepository(taskId, status);
 
         if (!data) {
-            response = await HttpResponse.badRequest();
+            response = await HttpResponse.serverError();
             return response;
         }
 
-        response = await HttpResponse.ok(data);
+        response = await HttpResponse.ok({ message: "Status updated." });
         return response;
     } catch (err) {
-        response = await HttpResponse.badRequest();
+        response = await HttpResponse.serverError();
         return response;
     }
 };

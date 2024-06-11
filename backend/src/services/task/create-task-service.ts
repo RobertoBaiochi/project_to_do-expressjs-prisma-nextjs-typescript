@@ -6,27 +6,34 @@ export const createTaskService = async (
     userId: string,
     taskContent: Partial<TaskModel>
 ) => {
-    const { title } = taskContent;
     let response = null;
 
-    if (!userId) {
-        response = await HttpResponse.unauthorized();
+    try {
+        const { title } = taskContent;
+        if (!userId) {
+            response = await HttpResponse.unauthorized();
+            return response;
+        }
+
+        if (!title) {
+            response = await HttpResponse.badRequest(
+                "The title must be filled in"
+            );
+            return response;
+        }
+
+        const data = await createTaskRepository(userId, title);
+
+        if (!data) {
+            response = await HttpResponse.serverError();
+            return response;
+        }
+
+        response = await HttpResponse.created();
+
         return response;
-    }
-
-    if (!title) {
-        response = await HttpResponse.badRequest("The title must be filled in");
-        return response;
-    }
-
-    const data = await createTaskRepository(userId, title);
-
-    if (!data) {
+    } catch (err) {
         response = await HttpResponse.serverError();
         return response;
     }
-
-    response = await HttpResponse.created();
-
-    return response;
 };

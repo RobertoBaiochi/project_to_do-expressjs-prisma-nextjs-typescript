@@ -8,23 +8,30 @@ export const updateTaskService = async (
 ) => {
     let response = null;
 
-    if (!taskId) {
-        response = await HttpResponse.noContent();
+    try {
+        if (!taskId) {
+            response = await HttpResponse.badRequest("Missing task ID.");
+            return response;
+        }
+
+        if (!taskData.title) {
+            response = await HttpResponse.badRequest(
+                "The title must be filled in."
+            );
+            return response;
+        }
+
+        const data = await updateTaskRepository(taskId, taskData);
+
+        if (!data) {
+            response = await HttpResponse.serverError();
+            return response;
+        }
+
+        response = await HttpResponse.ok({ message: "Updated successful" });
         return response;
-    }
-
-    if (!taskData.title) {
-        response = await HttpResponse.badRequest("The title must be filled in");
-        return response;
-    }
-
-    const data = await updateTaskRepository(taskId, taskData);
-
-    if (!data) {
+    } catch (err) {
         response = await HttpResponse.serverError();
         return response;
     }
-
-    response = await HttpResponse.ok({ message: "Updated successful" });
-    return response;
 };

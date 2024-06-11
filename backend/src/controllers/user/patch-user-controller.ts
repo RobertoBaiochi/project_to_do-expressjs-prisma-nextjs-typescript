@@ -7,4 +7,6 @@ export const updateUserController = async (req: Request, res: Response) => {
     const bodyContent: Partial<UserModel> = req.body;
 
     const httpResponse = await updateUserService(userId, bodyContent);
+
+    res.status(httpResponse.statusCode).json(httpResponse.body);
 };

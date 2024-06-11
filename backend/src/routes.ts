@@ -12,6 +12,8 @@ import { getTaskByIdController } from "./controllers/task/get-task-by-id-control
 import { updateTaskController } from "./controllers/task/update-task-controller";
 import { deleteTaskController } from "./controllers/task/delete-task-controller";
 import { updateStatusTaskController } from "./controllers/task/update-status-task-controller";
+import { handleFileUploadError, uploadFiles } from "./utils/multer-config";
+import { updateAvatarController } from "./controllers/user/update-avatar-controller";
 
 const route = Router();
 
@@ -20,8 +22,15 @@ route.get("/user", getAllUsersController);
 route.post("/create/user", createUserController);
 route.post("/login/user", authUserController);
 route.get("/me", isAuthenticated, detailsUserController);
-route.get("/user/:id", isAuthenticated, updateUserController);
+route.patch("/user/:id", isAuthenticated, updateUserController);
 route.delete("/user/:id", isAuthenticated, deleteUserController);
+route.post(
+    "/upload",
+    isAuthenticated,
+    uploadFiles,
+    handleFileUploadError,
+    updateAvatarController
+);
 
 // Tasks
 route.post("/task", isAuthenticated, createTaskController);

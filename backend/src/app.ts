@@ -8,6 +8,7 @@ const createApp = () => {
     app.use(express.json());
 
     app.use("/api", route);
+    app.use("/avatar", express.static("uploads"));
 
     const corsOptions = {
         origin: "*",

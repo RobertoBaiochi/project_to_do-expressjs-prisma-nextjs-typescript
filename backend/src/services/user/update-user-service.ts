@@ -1,17 +1,32 @@
 import { UserModel } from "../../models/userModel";
+import { updateUserRepository } from "../../respositories/user/patch-user-repository";
 import * as HttpResponse from "../../utils/http-helper";
 
 export const updateUserService = async (
     userId: string,
     bodyContent: Partial<UserModel>
 ) => {
-    const { avatar, name } = bodyContent;
+    const { name } = bodyContent;
     let response = null;
 
     if (!userId) {
-        response = HttpResponse.unauthorized();
+        response = await HttpResponse.unauthorized();
         return response;
     }
 
-    //Esperar para utilizar o MULTER como fazer update de Imagens
+    if (!name) {
+        response = await HttpResponse.noContent();
+        return response;
+    }
+
+    const data = await updateUserRepository(userId, name);
+
+    if (!data) {
+        response = await HttpResponse.serverError();
+        return response;
+    }
+
+    response = await HttpResponse.ok({ message: "Updated successful." });
+
+    return response;
 };

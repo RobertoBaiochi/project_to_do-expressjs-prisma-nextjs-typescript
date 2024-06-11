@@ -29,7 +29,7 @@ model Task {
   title       String     @db.VarChar(80)
   description String?
   status      TaskStatus @default(TODO)
-  user        User       @relation(fields: [userId], references: [id])
+  user        User       @relation(fields: [userId], references: [id], onDelete: Cascade)
   userId      String
 
   @@map("task")
@@ -38,7 +38,7 @@ model Task {
 model Avatar {
   id       String @id @default(uuid())
   pathname String
-  user     User   @relation(fields: [userId], references: [id])
+  user     User   @relation(fields: [userId], references: [id], onDelete: Cascade)
   userId   String @unique
 
   @@map("avatar")

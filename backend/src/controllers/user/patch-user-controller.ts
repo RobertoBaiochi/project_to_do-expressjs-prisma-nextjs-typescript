@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
 import { UserModel } from "../../models/userModel";
-import { updateUserService } from "../../services/user/update-user-service";
+import { updateUserService } from "../../services/user/patch-user-service";
 
 export const updateUserController = async (req: Request, res: Response) => {
     const userId = req.user_id;

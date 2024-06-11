@@ -1,4 +1,5 @@
 import { UserModel } from "../../models/userModel";
+import { getUserByIdRepository } from "../../respositories/user/get-user-by-id-repository";
 import { updateUserRepository } from "../../respositories/user/patch-user-repository";
 import * as HttpResponse from "../../utils/http-helper";
 
@@ -11,6 +12,13 @@ export const updateUserService = async (
 
     if (!userId) {
         response = await HttpResponse.unauthorized();
+        return response;
+    }
+
+    const userExist = await getUserByIdRepository(userId);
+
+    if (!userExist) {
+        response = await HttpResponse.badRequest();
         return response;
     }
 

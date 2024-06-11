@@ -21,6 +21,6 @@ export const updateAvatarService = async (userId: string, filename: string) => {
         return response;
     }
 
-    response = HttpResponse.created();
+    response = HttpResponse.ok({ message: "Upload successful." });
     return response;
 };

@@ -11,5 +11,12 @@ export const createUserRepository = async (
         },
     });
 
+    await prismaClient.avatar.create({
+        data: {
+            pathname: "",
+            userId: user.id,
+        },
+    });
+
     return user;
 };

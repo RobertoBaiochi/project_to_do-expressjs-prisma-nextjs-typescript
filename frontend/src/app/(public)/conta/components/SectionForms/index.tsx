@@ -1,26 +1,14 @@
 import Link from "next/link";
-import { RenderChangeForms } from "../RenderChangeForms";
 import styles from "./section.module.css";
-import Image from "next/image";
-import logo from "/public/assets/imgs/logo_bee_done1.svg";
+import { RenderChangeForms } from "../RenderChangeForms";
+
 import { TbHomeShare } from "react-icons/tb";
+import { LogoType } from "@/app/components/Logotype";
 
 export const SectionForms = () => {
     return (
         <aside className={styles.section_container}>
-            <div className={styles.logo_container}>
-                <h1 className={styles.title}>
-                    B<span className={styles.letter}>e</span>e{" "}
-                    <span className={styles.done}>Done</span>
-                </h1>
-                <Image
-                    src={logo}
-                    alt="logo de uma abelha"
-                    className={styles.logo}
-                    width={300}
-                    height={300}
-                />
-            </div>
+            <LogoType />
 
             <RenderChangeForms />
 

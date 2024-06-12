@@ -1,0 +1,32 @@
+.logo_container {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 5rem;
+}
+
+.logo {
+    max-width: 100%;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+
+.title {
+    font-size: 2.6rem;
+    color: rgb(255, 205, 4);
+}
+
+.letter {
+    color: #000;
+}
+
+.done {
+    color: #fff;
+    font-weight: 500;
+}
+
+@media (max-width: 600px) {
+}

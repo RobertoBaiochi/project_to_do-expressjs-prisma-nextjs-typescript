@@ -1,0 +1,14 @@
+.main {
+    width: 100%;
+    min-height: 100dvh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5rem;
+    background-color: rgba(10, 10, 10, 0.7);
+    background-image: url("/assets/imgs/bg_conta.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100% 100%;
+    background-blend-mode: darken;
+}

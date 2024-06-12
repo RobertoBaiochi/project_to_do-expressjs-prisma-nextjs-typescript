@@ -6,15 +6,10 @@ const createApp = () => {
     const app = express();
 
     app.use(express.json());
+    app.use(cors());
 
     app.use("/api", route);
     app.use("/avatar", express.static("uploads"));
-
-    const corsOptions = {
-        origin: "*",
-    };
-
-    app.use(cors(corsOptions));
 
     return app;
 };

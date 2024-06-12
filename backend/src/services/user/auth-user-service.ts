@@ -22,7 +22,7 @@ export const authUserService = async (contentBody: Partial<UserModel>) => {
             return response;
         }
 
-        const matchPassword = compare(password, user.password);
+        const matchPassword = await compare(password, user.password);
 
         if (!matchPassword) {
             response = await HttpResponse.badRequest("Email or password wrong");

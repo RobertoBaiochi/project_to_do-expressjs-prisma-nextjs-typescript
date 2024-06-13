@@ -12,6 +12,11 @@ export const getTasksDoingService = async (userId: string) => {
 
         const data = await getTasksDoingRepository(userId);
 
+        if (data.length === 0) {
+            response = await HttpResponse.noContent();
+            return response;
+        }
+
         response = await HttpResponse.ok(data);
         return response;
     } catch {

@@ -6,5 +6,5 @@ export const getTasksTodoController = async (req: Request, res: Response) => {
 
     const httpResponse = await getTasksTodoService(userId);
 
-    res.status(httpResponse.statusCode).json(httpResponse.statusCode);
+    res.status(httpResponse.statusCode).json(httpResponse.body);
 };

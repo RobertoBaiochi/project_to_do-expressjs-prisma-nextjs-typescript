@@ -1,11 +1,12 @@
 import { getAllTasksUser } from "@/services/api-requests/get-all-tasks-user";
 import styles from "./tasks.module.css";
 import { TasksColumns } from "../TasksColumns";
+import { getTasksByStatus } from "@/services/api-requests/get-tasks-by-status";
 
 export const TasksSection = async () => {
-    const todoTask = await getAllTasksUser();
-    const doingTask = await getAllTasksUser();
-    const doneTask = await getAllTasksUser();
+    const todoTask = await getTasksByStatus("todo");
+    const doingTask = await getTasksByStatus("doing");
+    const doneTask = await getTasksByStatus("done");
 
     return (
         <section className={styles.section_container}>

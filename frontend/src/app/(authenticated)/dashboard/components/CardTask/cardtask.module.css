@@ -8,5 +8,9 @@
     border-radius: 1rem;
     padding: 2rem;
     gap: 2rem;
+    cursor: pointer;
+}
+
+.card_container:active {
     cursor: grab;
 }

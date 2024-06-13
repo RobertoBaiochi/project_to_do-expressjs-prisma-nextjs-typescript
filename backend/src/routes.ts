@@ -14,6 +14,9 @@ import { deleteTaskController } from "./controllers/task/delete-task-controller"
 import { updateStatusTaskController } from "./controllers/task/update-status-task-controller";
 import { handleFileUploadError, uploadFiles } from "./utils/multer-config";
 import { updateAvatarController } from "./controllers/user/update-avatar-controller";
+import { getTasksDoneController } from "./controllers/task/get-tasks-done-status-controller";
+import { getTasksDoingController } from "./controllers/task/get-tasks-doing-status-controller";
+import { getTasksTodoController } from "./controllers/task/get-tasks-todo-status-controller";
 
 const route = Router();
 
@@ -39,5 +42,8 @@ route.get("/task/:id", isAuthenticated, getTaskByIdController);
 route.patch("/task/:id", isAuthenticated, updateTaskController);
 route.delete("/task/:id", isAuthenticated, deleteTaskController);
 route.patch("/taskstatus/:id", isAuthenticated, updateStatusTaskController);
+route.get("/todo/task", isAuthenticated, getTasksTodoController);
+route.get("/doing/task", isAuthenticated, getTasksDoingController);
+route.get("/done/task", isAuthenticated, getTasksDoneController);
 
 export default route;

@@ -60,6 +60,21 @@ body {
     font-size: 1.8rem;
 }
 
+body::-webkit-scrollbar {
+    width: 1.2rem;
+    margin-right: 2rem;
+}
+
+body::-webkit-scrollbar-track {
+    background: #403f3f;
+    border-radius: 0.5rem;
+}
+
+body::-webkit-scrollbar-thumb {
+    background: #ffcd04;
+    border-radius: 0.5rem;
+}
+
 img {
     max-width: 100%;
 }

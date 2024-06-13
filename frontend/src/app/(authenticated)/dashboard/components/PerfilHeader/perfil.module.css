@@ -9,9 +9,7 @@
     backdrop-filter: blur(3px);
     padding: 1rem;
     border-radius: 4rem;
-    position: fixed;
-    top: 2rem;
-    gap: 1rem;
+    margin-bottom: 4rem;
 }
 
 .logo_container {

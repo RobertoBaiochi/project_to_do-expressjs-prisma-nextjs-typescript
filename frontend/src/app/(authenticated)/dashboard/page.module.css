@@ -3,9 +3,10 @@
     min-height: 100dvh;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
     flex-direction: column;
     padding-inline: 2rem;
+    padding-block: 5rem;
     background-image: url("/assets/imgs/teste1.webp");
     background-color: rgba(0, 0, 0, 0.3);
     background-blend-mode: multiply;

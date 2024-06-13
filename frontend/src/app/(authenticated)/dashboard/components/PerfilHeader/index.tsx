@@ -25,16 +25,18 @@ export const PerfilHeader = (user: UserResponseModel) => {
                 </h1>
             </div>
 
-            <hgroup className={styles.text_container}>
-                <h3 className={styles.name}>{name || userDefault}</h3>
-                <h3 className={styles.email}>{email}</h3>
-            </hgroup>
+            <div className={styles.logo_container}>
+                <hgroup className={styles.text_container}>
+                    <h3 className={styles.name}>{name || userDefault}</h3>
+                    <h3 className={styles.email}>{email}</h3>
+                </hgroup>
 
-            <Image
-                src={avatar.pathname || avatarDefault}
-                alt="Foto do perfil"
-                className={styles.perfil}
-            />
+                <Image
+                    src={avatar.pathname || avatarDefault}
+                    alt="Foto do perfil"
+                    className={styles.perfil}
+                />
+            </div>
         </header>
     );
 };

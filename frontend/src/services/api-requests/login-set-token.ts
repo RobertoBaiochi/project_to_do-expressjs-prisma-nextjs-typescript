@@ -1,6 +1,5 @@
 import Cookies from "js-cookie";
 import { apiClient } from "../axios/api-client";
-import { toast } from "react-toastify";
 
 export async function loginToken(email: string, password: string) {
     const response = await apiClient

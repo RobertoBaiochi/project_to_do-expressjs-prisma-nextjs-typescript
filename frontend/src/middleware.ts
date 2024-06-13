@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
+import { logoutRemoveToken } from "./services/api-requests/logout-remove-token";
 
 export default async function middleware(request: NextRequest) {
     const token = request.cookies.get("token")?.value;

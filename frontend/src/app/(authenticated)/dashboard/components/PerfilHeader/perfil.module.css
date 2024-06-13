@@ -1,0 +1,68 @@
+.header_container {
+    max-width: 35rem;
+    width: 100%;
+    height: 6rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(3px);
+    padding: 1rem;
+    border-radius: 4rem;
+    position: fixed;
+    top: 2rem;
+    gap: 1rem;
+}
+
+.logo_container {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 1rem;
+}
+
+.logo,
+.perfil {
+    width: 4rem;
+    height: 4rem;
+    object-fit: cover;
+    border-radius: 50%;
+    background-color: #fff;
+    border: 3px solid #ffcd04;
+}
+
+.text_container {
+    width: 100%;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    gap: 0.5rem;
+    flex-direction: column;
+}
+
+.email {
+    color: #767676;
+    font-size: 1.5rem;
+    font-weight: 300;
+}
+
+.name {
+    font-size: 1.6rem;
+    color: rgb(255, 205, 4);
+}
+
+.title {
+    font-size: 1.6rem;
+    color: rgb(255, 205, 4);
+    width: 3ch;
+}
+
+.letter {
+    color: #ffffff;
+}
+
+.done {
+    color: #fff;
+    font-weight: 500;
+}

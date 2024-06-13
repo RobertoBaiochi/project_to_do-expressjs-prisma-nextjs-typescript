@@ -1,20 +1,17 @@
-"use client";
-import { logoutRemoveToken } from "@/services/api-requests/logout-remove-token";
 import styles from "./page.module.css";
-import { useRouter } from "next/navigation";
+import { PerfilHeader } from "./components/PerfilHeader";
+import { getUserDetails } from "@/services/api-requests/get-user-details";
+import { TasksSection } from "./components/TasksSection";
+import { InputAddTask } from "./components/inputAddTask";
 
-export default function Dashboard() {
-    const router = useRouter();
-
-    const handleLogout = () => {
-        logoutRemoveToken();
-        router.push("/");
-    };
+export default async function Dashboard() {
+    const user = await getUserDetails();
 
     return (
         <main className={styles.main}>
-            <h1>Dashboard</h1>
-            <button onClick={handleLogout}>Logout</button>
+            <PerfilHeader {...user} />
+            <TasksSection />
+            <InputAddTask />
         </main>
     );
 }

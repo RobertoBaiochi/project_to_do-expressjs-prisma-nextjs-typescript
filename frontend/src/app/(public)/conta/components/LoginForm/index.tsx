@@ -51,12 +51,12 @@ export const LoginForm = () => {
             }
 
             toast.success("Login feito com sucesso!");
-            reset(initialValue);
-            setButtonDisabled(false);
             router.push("/dashboard");
         } catch {
-            setButtonDisabled(false);
             toast.error("Email e/ou senha inválido(s).");
+        } finally {
+            reset(initialValue);
+            setButtonDisabled(false);
         }
     };
 

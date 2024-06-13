@@ -13,7 +13,7 @@ const schema = z.object({
     email: z.string().email({ message: "Insira um email válido." }),
     password: z
         .string()
-        .min(8, { message: "Sua senha tem no mínimo 8 caracteres." }),
+        .min(8, { message: "Sua senha deve ter no mínimo 8 caracteres." }),
 });
 
 const initialValue: UserAccountModel = {
@@ -51,12 +51,10 @@ export const CreateAccountForm = ({
 
             if (!isCreated) {
                 toast.error("O usuário já existe.");
-                reset(initialValue);
                 return;
             }
 
             toast.success("Conta criada com sucesso!");
-            setChangeForm((prev) => !prev);
             reset(initialValue);
         } catch {
             toast.error(
@@ -64,6 +62,8 @@ export const CreateAccountForm = ({
             );
         } finally {
             setButtonDisabled(false);
+            setChangeForm((prev) => !prev);
+            reset(initialValue);
         }
     };
 

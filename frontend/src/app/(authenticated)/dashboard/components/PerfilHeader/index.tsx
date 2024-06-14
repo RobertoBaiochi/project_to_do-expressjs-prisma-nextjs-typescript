@@ -25,7 +25,7 @@ export const PerfilHeader = (user: UserResponseModel) => {
                 </h1>
             </div>
 
-            <div className={styles.logo_container}>
+            <div className={styles.user_container}>
                 <hgroup className={styles.text_container}>
                     <h3 className={styles.name}>{name || userDefault}</h3>
                     <h3 className={styles.email}>{email}</h3>

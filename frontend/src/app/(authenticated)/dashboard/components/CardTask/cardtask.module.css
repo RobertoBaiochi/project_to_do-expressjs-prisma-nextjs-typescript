@@ -2,15 +2,30 @@
     width: 100%;
     height: 7rem;
     background-color: rgba(255, 255, 255, 0.2);
+    color: #fff;
     display: flex;
     align-items: center;
-    justify-content: flex-start;
+    justify-content: space-between;
     border-radius: 1rem;
     padding: 2rem;
     gap: 2rem;
-    cursor: pointer;
+    cursor: grab;
 }
 
 .card_container:active {
     cursor: grab;
+}
+.card_actions {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    cursor: auto;
+}
+
+.btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: transparent;
 }

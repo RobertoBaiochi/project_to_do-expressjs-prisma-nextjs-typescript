@@ -4,8 +4,6 @@ import { apiClient } from "../axios/api-client";
 export const getTasksByStatus = async (status: "done" | "doing" | "todo") => {
     const token = cookies().get("token")?.value;
 
-    console.log(status);
-
     try {
         const response = await apiClient
             .get(`/${status}/task`, {

@@ -1,13 +1,11 @@
 .section_container {
+    max-width: 160rem;
     width: 100%;
-    background-color: rgba(0, 0, 0, 0.8);
-    backdrop-filter: blur(3px);
-    padding: 2rem;
-    border-radius: 1rem;
-    color: #fff;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
+    align-content: flex-start;
     gap: 2rem;
+    transition: all 300ms ease-in-out;
 }
 
 .list_container {

@@ -3,14 +3,24 @@ import { PerfilHeader } from "./components/PerfilHeader";
 import { getUserDetails } from "@/services/api-requests/get-user-details";
 import { TasksSection } from "./components/TasksSection";
 import { InputAddTask } from "./components/inputAddTask";
+import { getTasksByStatus } from "@/services/api-requests/get-tasks-by-status";
+import { UserResponseModel } from "@/app/Models/UserReponseModel";
 
 export default async function Dashboard() {
-    const user = await getUserDetails();
+    const user: UserResponseModel = await getUserDetails();
+    const todoTask = (await getTasksByStatus("todo")) || [];
+    const doingTask = (await getTasksByStatus("doing")) || [];
+    const doneTask = (await getTasksByStatus("done")) || [];
 
     return (
         <main className={styles.main}>
             <PerfilHeader {...user} />
-            <TasksSection />
+            <TasksSection
+                doingTasks={doingTask}
+                doneTasks={doneTask}
+                todoTasks={todoTask}
+                key={user.id}
+            />
             <InputAddTask />
         </main>
     );

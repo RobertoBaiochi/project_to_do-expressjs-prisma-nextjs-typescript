@@ -13,7 +13,14 @@
 }
 
 .logo_container {
-    width: 100%;
+    width: 30%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 1rem;
+}
+.user_container {
+    width: 70%;
     display: flex;
     align-items: center;
     justify-content: flex-start;
@@ -26,7 +33,7 @@
     height: 4rem;
     object-fit: cover;
     border-radius: 50%;
-    background-color: #fff;
+    background-color: #939393;
     border: 3px solid #ffcd04;
 }
 

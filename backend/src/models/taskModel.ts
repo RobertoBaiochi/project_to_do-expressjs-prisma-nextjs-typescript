@@ -5,4 +5,5 @@ export interface TaskModel {
     title: string;
     description?: string;
     status: TaskStatusModel;
+    index: number;
 }

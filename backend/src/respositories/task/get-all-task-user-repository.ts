@@ -9,6 +9,7 @@ export const getAllTaskUserRepository = async (userId: string) => {
             id: true,
             title: true,
             status: true,
+            index: true,
         },
     });
 

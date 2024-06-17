@@ -29,6 +29,7 @@ model Task {
   title       String     @db.VarChar(80)
   description String?
   status      TaskStatus @default(TODO)
+  index       Int        @default(autoincrement())
   user        User       @relation(fields: [userId], references: [id], onDelete: Cascade)
   userId      String
 

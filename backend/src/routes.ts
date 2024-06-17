@@ -17,6 +17,7 @@ import { updateAvatarController } from "./controllers/user/update-avatar-control
 import { getTasksDoneController } from "./controllers/task/get-tasks-done-status-controller";
 import { getTasksDoingController } from "./controllers/task/get-tasks-doing-status-controller";
 import { getTasksTodoController } from "./controllers/task/get-tasks-todo-status-controller";
+import { updateTaskIndexController } from "./controllers/task/update-index-task-controller";
 
 const route = Router();
 
@@ -45,5 +46,6 @@ route.patch("/taskstatus/:id", isAuthenticated, updateStatusTaskController);
 route.get("/todo/task", isAuthenticated, getTasksTodoController);
 route.get("/doing/task", isAuthenticated, getTasksDoingController);
 route.get("/done/task", isAuthenticated, getTasksDoneController);
+route.patch("/index/task/:id", isAuthenticated, updateTaskIndexController);
 
 export default route;

@@ -19,7 +19,6 @@ export default async function Dashboard() {
                 doingTasks={doingTask}
                 doneTasks={doneTask}
                 todoTasks={todoTask}
-                key={user.id}
             />
             <InputAddTask />
         </main>

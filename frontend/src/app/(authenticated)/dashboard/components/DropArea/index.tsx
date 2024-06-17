@@ -1,16 +1,22 @@
 import { ReactElement, useState } from "react";
 import styles from "./droparea.module.css";
+import { updateIndexTask } from "@/services/api-requests/update-index-task";
 
 interface DropAreaProps {
-    handleOnDrop: () => void;
+    handleOnDrop: () => Promise<void>;
     children?: ReactElement;
+    indexArray: number;
 }
 
-export const DropArea = ({ handleOnDrop, children }: DropAreaProps) => {
+export const DropArea = ({
+    handleOnDrop,
+    children,
+    indexArray,
+}: DropAreaProps) => {
     const [showDrop, setShowDrop] = useState<boolean>(false);
 
-    const handle = () => {
-        handleOnDrop();
+    const handle = async () => {
+        await handleOnDrop();
         setShowDrop(false);
     };
 
@@ -22,7 +28,7 @@ export const DropArea = ({ handleOnDrop, children }: DropAreaProps) => {
             onDrop={handle}
             onDragOver={(e) => e.preventDefault()}
         >
-            {children || "Drag Here"}
+            {children || `Drag here - ${indexArray}`}
         </div>
     );
 };

@@ -7,7 +7,7 @@ import { UserResponseModel } from "@/app/Models/UserReponseModel";
 export const PerfilHeader = (user: UserResponseModel) => {
     const { email, name, avatar } = user;
 
-    const userDefault = email.split("@")[0];
+    const userDefault = email?.split("@")[0] || "";
 
     return (
         <header className={styles.header_container}>

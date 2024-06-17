@@ -6,6 +6,9 @@ export const getTasksDoneRepository = async (userId: string) => {
             userId,
             status: "DONE",
         },
+        orderBy: {
+            index: "asc",
+        },
     });
 
     return data;

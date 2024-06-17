@@ -1,11 +1,12 @@
 "use client";
 
-import { getAllTasksUser } from "@/services/api-requests/get-all-tasks-user";
 import styles from "./tasks.module.css";
 import { TasksColumns } from "../TasksColumns";
-import { getTasksByStatus } from "@/services/api-requests/get-tasks-by-status";
 import { ResponseTaskModel } from "@/app/Models/ResponseTaskModel";
 import { useState } from "react";
+import { updateStatusTask } from "@/services/api-requests/update-status-task";
+import { useRouter } from "next/navigation";
+import { updateIndexTask } from "@/services/api-requests/update-index-task";
 
 interface TasksSectionProps {
     todoTasks: ResponseTaskModel[];
@@ -20,6 +21,18 @@ export const TasksSection = ({
 }: TasksSectionProps) => {
     const [activeId, setActiveId] = useState<string>("");
 
+    const router = useRouter();
+
+    const handleOnDrop = async (
+        indexArray: number,
+        status: "TODO" | "DOING" | "DONE"
+    ) => {
+        await updateIndexTask(activeId, indexArray);
+        await updateStatusTask(activeId, status);
+
+        router.refresh();
+    };
+
     return (
         <section className={styles.section_container}>
             <TasksColumns
@@ -27,21 +40,21 @@ export const TasksSection = ({
                 tasks={todoTasks}
                 status="TODO"
                 setActiveId={setActiveId}
-                activeId={activeId}
+                handleOnDrop={handleOnDrop}
             />
             <TasksColumns
                 title="🚀 Doing"
                 tasks={doingTasks}
                 status="DOING"
                 setActiveId={setActiveId}
-                activeId={activeId}
+                handleOnDrop={handleOnDrop}
             />
             <TasksColumns
                 title="🔥 Done"
                 tasks={doneTasks}
                 status="DONE"
                 setActiveId={setActiveId}
-                activeId={activeId}
+                handleOnDrop={handleOnDrop}
             />
         </section>
     );

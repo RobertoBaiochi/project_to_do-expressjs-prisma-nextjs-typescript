@@ -4,12 +4,12 @@ import * as HttpResponse from "../../utils/http-helper";
 
 export const updateStatusTaskService = async (
     taskId: string,
-    statusEnum: TaskStatusModel
+    TaskStatusIndexModel: TaskStatusModel
 ) => {
     let response = null;
 
     try {
-        let { status } = statusEnum;
+        let { status } = TaskStatusIndexModel;
 
         if (!taskId) {
             response = await HttpResponse.badRequest("Missing task ID.");

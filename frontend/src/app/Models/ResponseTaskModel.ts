@@ -3,4 +3,5 @@ export interface ResponseTaskModel {
     title: string;
     description?: string;
     status: "TODO" | "DOING" | "DONE";
+    index: number;
 }

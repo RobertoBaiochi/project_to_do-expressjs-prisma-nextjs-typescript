@@ -1,15 +1,15 @@
 import prismaClient from "../../utils/prisma-client";
 
-export const updateStatusTaskRepository = async (
+export const updateTaskIndexRepository = async (
     taskId: string,
-    status: "DONE" | "DOING" | "TODO"
+    taskIndex: number
 ) => {
     const data = await prismaClient.task.updateMany({
         where: {
             id: taskId,
         },
         data: {
-            status: status,
+            index: taskIndex,
         },
     });
 

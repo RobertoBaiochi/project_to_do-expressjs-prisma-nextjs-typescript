@@ -1,18 +1,19 @@
-"use client";
 import { ResponseTaskModel } from "@/app/Models/ResponseTaskModel";
 import styles from "./taskscolumns.module.css";
 import { CardTask } from "../CardTask";
-import { updateStatusTask } from "@/services/api-requests/update-status-task";
-import React, { Dispatch, SetStateAction, useState } from "react";
+import React, { Dispatch, SetStateAction } from "react";
 import { DropArea } from "../DropArea";
-import { useRouter } from "next/navigation";
 
 interface TasksColumnsProps {
     title: string;
     tasks: ResponseTaskModel[];
     status: "TODO" | "DOING" | "DONE";
     setActiveId: Dispatch<SetStateAction<string>>;
-    activeId: string;
+    handleOnDrop: (
+        indexArray: number,
+        stauts: "TODO" | "DOING" | "DONE",
+        tasks: ResponseTaskModel[]
+    ) => Promise<void>;
 }
 
 export const TasksColumns = ({
@@ -20,15 +21,8 @@ export const TasksColumns = ({
     tasks,
     status,
     setActiveId,
-    activeId,
+    handleOnDrop,
 }: TasksColumnsProps) => {
-    const router = useRouter();
-
-    const handleOnDrop = async () => {
-        await updateStatusTask(activeId, status);
-        router.refresh();
-    };
-
     return (
         <article className={styles.columns_container} key={status}>
             <div className={styles.title_container}>
@@ -36,16 +30,28 @@ export const TasksColumns = ({
             </div>
 
             <div className={styles.list_container}>
-                <DropArea handleOnDrop={handleOnDrop} />
                 {tasks.length === 0 && (
-                    <li className={styles.no_card}>sem tasks...</li>
+                    <DropArea
+                        handleOnDrop={() => handleOnDrop(1, status, tasks)}
+                        indexArray={1}
+                    />
                 )}
 
-                {tasks.map((task, index) => (
-                    <React.Fragment key={index}>
-                        <CardTask task={task} setActiveId={setActiveId} />
+                {tasks.map((task, indexArray) => (
+                    <React.Fragment key={indexArray}>
+                        <CardTask
+                            task={task}
+                            setActiveId={setActiveId}
+                            indexArray={indexArray + 1}
+                            status={status}
+                        />
 
-                        <DropArea handleOnDrop={handleOnDrop} />
+                        <DropArea
+                            handleOnDrop={() =>
+                                handleOnDrop(indexArray + 1, status, tasks)
+                            }
+                            indexArray={indexArray + 1}
+                        />
                     </React.Fragment>
                 ))}
             </div>

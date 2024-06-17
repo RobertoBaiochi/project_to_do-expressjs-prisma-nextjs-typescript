@@ -8,7 +8,7 @@ export const updateStatusTaskController = async (
     res: Response
 ) => {
     const taskId: string = req.params.id;
-    const statusEnum: TaskStatusModel = req.body as TaskStatusModel;
+    const statusEnum: TaskStatusModel = req.body;
 
     const httpResponse = await updateStatusTaskService(taskId, statusEnum);
 

@@ -10,6 +10,7 @@ export const getTaskByIdRepository = async (userId: string) => {
             title: true,
             description: true,
             status: true,
+            index: true,
         },
     });
 

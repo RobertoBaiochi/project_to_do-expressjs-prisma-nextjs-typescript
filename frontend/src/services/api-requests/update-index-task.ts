@@ -1,17 +1,17 @@
 import { apiClient } from "../axios/api-client";
 import Cookies from "js-cookie";
 
-export const updateStatusTask = async (
-    taskId: string,
-    status: "TODO" | "DOING" | "DONE"
-) => {
+export const updateIndexTask = async (taskId: string, taskIndex: number) => {
     const token = Cookies.get("token");
+
+    console.log("index", taskIndex);
+
     try {
         const response = await apiClient
             .patch(
-                `/taskstatus/${taskId}`,
+                `/index/task/${taskId}`,
                 {
-                    status: status,
+                    index: taskIndex,
                 },
                 {
                     headers: { Authorization: `Token ${token}` },

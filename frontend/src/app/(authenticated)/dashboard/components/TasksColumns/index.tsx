@@ -3,17 +3,25 @@ import styles from "./taskscolumns.module.css";
 import { CardTask } from "../CardTask";
 import React, { Dispatch, SetStateAction } from "react";
 import { DropArea } from "../DropArea";
+import { Modal } from "@/app/components/Modal";
+import { UpdateTaskModal } from "../UpdateTaskModal";
+import { DescriptionTaskModal } from "../DescriptionTaskModal";
 
 interface TasksColumnsProps {
     title: string;
     tasks: ResponseTaskModel[];
     status: "TODO" | "DOING" | "DONE";
     setActiveId: Dispatch<SetStateAction<string>>;
+    activeId: string;
     handleOnDrop: (
         indexArray: number,
         stauts: "TODO" | "DOING" | "DONE",
         tasks: ResponseTaskModel[]
     ) => Promise<void>;
+    setOpenModalUpdate: Dispatch<SetStateAction<boolean>>;
+    openModalUpdate: boolean;
+    setOpenModalDescription: Dispatch<SetStateAction<boolean>>;
+    openModalDescription: boolean;
 }
 
 export const TasksColumns = ({
@@ -21,7 +29,12 @@ export const TasksColumns = ({
     tasks,
     status,
     setActiveId,
+    activeId,
     handleOnDrop,
+    setOpenModalUpdate,
+    openModalUpdate,
+    setOpenModalDescription,
+    openModalDescription,
 }: TasksColumnsProps) => {
     return (
         <article className={styles.columns_container} key={status}>
@@ -29,11 +42,33 @@ export const TasksColumns = ({
                 <h1 className={styles.title}>{title}</h1>
             </div>
 
+            {openModalDescription && (
+                <Modal
+                    setOpenModal={setOpenModalDescription}
+                    titleModal="Description Task"
+                    key={"description"}
+                >
+                    <DescriptionTaskModal taskId={activeId} />
+                </Modal>
+            )}
+
+            {openModalUpdate && (
+                <Modal
+                    setOpenModal={setOpenModalUpdate}
+                    titleModal="Update Task"
+                    key={"update"}
+                >
+                    <UpdateTaskModal
+                        taskId={activeId}
+                        setOpenModal={setOpenModalUpdate}
+                    />
+                </Modal>
+            )}
+
             <div className={styles.list_container}>
                 {tasks.length === 0 && (
                     <DropArea
                         handleOnDrop={() => handleOnDrop(1, status, tasks)}
-                        indexArray={1}
                     />
                 )}
 
@@ -44,13 +79,14 @@ export const TasksColumns = ({
                             setActiveId={setActiveId}
                             indexArray={indexArray + 1}
                             status={status}
+                            setOpenModalUpdate={setOpenModalUpdate}
+                            setOpenModalDescription={setOpenModalDescription}
                         />
 
                         <DropArea
                             handleOnDrop={() =>
                                 handleOnDrop(indexArray + 1, status, tasks)
                             }
-                            indexArray={indexArray + 1}
                         />
                     </React.Fragment>
                 ))}

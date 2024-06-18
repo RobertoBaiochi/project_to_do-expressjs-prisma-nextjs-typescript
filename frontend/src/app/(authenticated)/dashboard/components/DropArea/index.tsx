@@ -5,14 +5,9 @@ import { updateIndexTask } from "@/services/api-requests/update-index-task";
 interface DropAreaProps {
     handleOnDrop: () => Promise<void>;
     children?: ReactElement;
-    indexArray: number;
 }
 
-export const DropArea = ({
-    handleOnDrop,
-    children,
-    indexArray,
-}: DropAreaProps) => {
+export const DropArea = ({ handleOnDrop, children }: DropAreaProps) => {
     const [showDrop, setShowDrop] = useState<boolean>(false);
 
     const handle = async () => {
@@ -28,7 +23,7 @@ export const DropArea = ({
             onDrop={handle}
             onDragOver={(e) => e.preventDefault()}
         >
-            {children || `Drag here - ${indexArray}`}
+            {children || "Drag here"}
         </div>
     );
 };

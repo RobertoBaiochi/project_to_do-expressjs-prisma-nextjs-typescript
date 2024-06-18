@@ -1,0 +1,51 @@
+.modal_container {
+    width: 100dvw;
+    min-height: 100dvh;
+    background-color: rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(3px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 50;
+}
+
+.article_container {
+    max-width: 70rem;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 2rem;
+    padding: 2rem;
+    background-color: #fff;
+    border-radius: 2rem;
+}
+
+.action_container {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal_title {
+    width: 100%;
+    text-align: center;
+    font-size: 2rem;
+    color: #000;
+}
+
+.modal_btn {
+    padding: 0.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 0.5rem;
+    background-color: brown;
+}

@@ -14,7 +14,7 @@ export default async function Dashboard() {
 
     return (
         <main className={styles.main}>
-            <PerfilHeader {...user} />
+            <PerfilHeader user={user} />
             <TasksSection
                 doingTasks={doingTask}
                 doneTasks={doneTask}

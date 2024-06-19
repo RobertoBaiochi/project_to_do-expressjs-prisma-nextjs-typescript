@@ -13,11 +13,13 @@ import { updateTaskController } from "./controllers/task/update-task-controller"
 import { deleteTaskController } from "./controllers/task/delete-task-controller";
 import { updateStatusTaskController } from "./controllers/task/update-status-task-controller";
 import { handleFileUploadError, uploadFiles } from "./utils/multer-config";
-import { updateAvatarController } from "./controllers/user/update-avatar-controller";
+import { createAvatarController } from "./controllers/user/create-avatar-controller";
 import { getTasksDoneController } from "./controllers/task/get-tasks-done-status-controller";
 import { getTasksDoingController } from "./controllers/task/get-tasks-doing-status-controller";
 import { getTasksTodoController } from "./controllers/task/get-tasks-todo-status-controller";
 import { updateTaskIndexController } from "./controllers/task/update-index-task-controller";
+import { updateAvatarController } from "./controllers/user/update-avatar-controller";
+import { getAvatarByIdController } from "./controllers/avatar/get-avatar-by-id-controller";
 
 const route = Router();
 
@@ -28,13 +30,6 @@ route.post("/login/user", authUserController);
 route.get("/me", isAuthenticated, detailsUserController);
 route.patch("/user/:id", isAuthenticated, updateUserController);
 route.delete("/user/:id", isAuthenticated, deleteUserController);
-route.post(
-    "/upload",
-    isAuthenticated,
-    uploadFiles,
-    handleFileUploadError,
-    updateAvatarController
-);
 
 // Tasks
 route.post("/task", isAuthenticated, createTaskController);
@@ -47,5 +42,25 @@ route.get("/todo/task", isAuthenticated, getTasksTodoController);
 route.get("/doing/task", isAuthenticated, getTasksDoingController);
 route.get("/done/task", isAuthenticated, getTasksDoneController);
 route.patch("/index/task/:id", isAuthenticated, updateTaskIndexController);
+
+// Avatar
+route.post(
+    "/upload",
+    isAuthenticated,
+    uploadFiles,
+    handleFileUploadError,
+    createAvatarController
+);
+route.patch(
+    "/upload/:id",
+    isAuthenticated,
+    uploadFiles,
+    handleFileUploadError,
+    updateAvatarController
+);
+
+route.get("/avatar/:id", isAuthenticated, getAvatarByIdController);
+
+// http://localhost:3333/avatar/a21c5f46-1a4f-4fa0-9c44-ff456ffe52e2.png
 
 export default route;

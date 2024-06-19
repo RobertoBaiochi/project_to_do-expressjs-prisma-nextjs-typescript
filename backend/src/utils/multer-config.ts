@@ -9,7 +9,10 @@ const storage = multer.diskStorage({
     },
     filename(req, file, callback) {
         const user_id = req.user_id;
-        callback(null, `${user_id}_${file.originalname}`);
+        callback(
+            null,
+            `${user_id}_${Date.now()}_${path.extname(file.originalname)}`
+        );
     },
 });
 
@@ -23,11 +26,15 @@ export const uploadFiles = multer({
         ) {
             callback(null, true);
         } else {
-            callback(new Error("Only JPEG and PNG files are allowed"));
+            callback(
+                new Error(
+                    "Only JPEG and PNG files are allowed or max size 1024px"
+                )
+            );
         }
     },
     limits: {
-        fileSize: 1024 * 1024,
+        fileSize: 3000000,
     },
 }).single("file");
 
@@ -41,7 +48,7 @@ export const handleFileUploadError = async (
 
     if (error instanceof multer.MulterError) {
         response = await HttpResponse.badRequest(
-            "Only image like JPG, JPEG and PNG files are allowed"
+            "Only image like JPG, JPEG and PNG files are allowed or max size 1024px"
         );
 
         res.status(response.statusCode).json(response.body);

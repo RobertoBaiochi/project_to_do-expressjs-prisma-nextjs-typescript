@@ -3,7 +3,6 @@ import { cookies } from "next/headers";
 
 export const getUserDetails = async () => {
     const token = cookies().get("token")?.value;
-
     try {
         const response = await apiClient
             .get("/me", {

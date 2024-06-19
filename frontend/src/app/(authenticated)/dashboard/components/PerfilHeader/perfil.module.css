@@ -27,6 +27,13 @@
     gap: 1rem;
 }
 
+.perfil_btn {
+    width: 5rem;
+    height: 5rem;
+    background-color: transparent;
+    border-radius: 50%;
+}
+
 .logo,
 .perfil {
     width: 4rem;

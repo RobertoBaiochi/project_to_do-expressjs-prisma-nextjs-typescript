@@ -1,0 +1,32 @@
+.empty_container {
+    background: linear-gradient(
+        to left,
+        rgba(0, 0, 0, 0.7),
+        transparent,
+        rgba(0, 0, 0, 0.7)
+    );
+    backdrop-filter: blur(3px);
+    max-width: 50rem;
+    min-height: 60dvh;
+    width: 100%;
+    border-radius: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 2rem;
+    padding: 2rem;
+    box-shadow: 0px 3px 4px 7px rgba(39, 39, 39, 0.3);
+}
+
+.image {
+    max-width: 300px;
+    width: 100%;
+    border-radius: 2rem;
+    box-shadow: 0px 0px 4px 7px rgba(93, 93, 93, 0.3);
+}
+
+.text {
+    margin-top: 3rem;
+    color: #fff;
+}

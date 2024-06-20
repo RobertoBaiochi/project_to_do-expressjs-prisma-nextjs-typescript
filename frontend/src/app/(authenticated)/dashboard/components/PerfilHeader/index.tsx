@@ -6,7 +6,6 @@ import styles from "./perfil.module.css";
 import { UserResponseModel } from "@/app/Models/UserReponseModel";
 import { useEffect, useState } from "react";
 import { Modal } from "@/app/components/Modal";
-import { logoutRemoveToken } from "@/services/api-requests/logout-remove-token";
 import { useRouter } from "next/navigation";
 import { PerfilModalUpdate } from "../PerfilModalUpdate";
 import { getAvatarById } from "@/services/api-requests/get-avatar-by-id";
@@ -37,10 +36,9 @@ export const PerfilHeader = ({ user }: PerfilHeaderProps) => {
         setOpenModal(true);
     };
 
-    const handleLogout = () => {
-        logoutRemoveToken();
-        router.refresh();
-    };
+    if (!avatarSrc) {
+        return null; // Ou um spinner de carregamento
+    }
 
     return (
         <>
@@ -48,7 +46,6 @@ export const PerfilHeader = ({ user }: PerfilHeaderProps) => {
                 <Modal setOpenModal={setOpenModal} titleModal="Perfil">
                     <PerfilModalUpdate
                         user={user}
-                        handleLogout={handleLogout}
                         setOpenModal={setOpenModal}
                     />
                 </Modal>
@@ -79,7 +76,7 @@ export const PerfilHeader = ({ user }: PerfilHeaderProps) => {
                         onClick={handleOpenModal}
                     >
                         <Image
-                            src={avatarSrc.pathname}
+                            src={avatarSrc.pathname || ""}
                             alt="Foto do perfil"
                             className={styles.perfil}
                             width={300}

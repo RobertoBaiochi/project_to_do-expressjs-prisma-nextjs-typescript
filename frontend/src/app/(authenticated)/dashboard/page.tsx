@@ -5,6 +5,7 @@ import { TasksSection } from "./components/TasksSection";
 import { InputAddTask } from "./components/inputAddTask";
 import { getTasksByStatus } from "@/services/api-requests/get-tasks-by-status";
 import { UserResponseModel } from "@/app/Models/UserReponseModel";
+import { EmptyTasks } from "./components/EmptyTasks";
 
 export default async function Dashboard() {
     const user: UserResponseModel = await getUserDetails();
@@ -15,11 +16,16 @@ export default async function Dashboard() {
     return (
         <main className={styles.main}>
             <PerfilHeader user={user} />
-            <TasksSection
-                doingTasks={doingTask}
-                doneTasks={doneTask}
-                todoTasks={todoTask}
-            />
+
+            {user.task.length === 0 ? (
+                <EmptyTasks />
+            ) : (
+                <TasksSection
+                    doingTasks={doingTask}
+                    doneTasks={doneTask}
+                    todoTasks={todoTask}
+                />
+            )}
             <InputAddTask />
         </main>
     );

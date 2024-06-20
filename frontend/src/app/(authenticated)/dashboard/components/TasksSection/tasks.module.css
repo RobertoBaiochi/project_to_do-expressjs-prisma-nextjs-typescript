@@ -1,8 +1,10 @@
 .section_container {
     max-width: 160rem;
+    overflow-x: auto;
+    height: 100%;
     width: 100%;
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(3, minmax(40rem, 1fr));
     align-content: flex-start;
     gap: 2rem;
     transition: all 300ms ease-in-out;

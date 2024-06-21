@@ -6,7 +6,7 @@ import styles from "./perfil.module.css";
 import { UserResponseModel } from "@/app/Models/UserReponseModel";
 import { useEffect, useState } from "react";
 import { Modal } from "@/app/components/Modal";
-import { useRouter } from "next/navigation";
+
 import { PerfilModalUpdate } from "../PerfilModalUpdate";
 import { getAvatarById } from "@/services/api-requests/get-avatar-by-id";
 import { AvatarModel } from "@/app/Models/AvatarModel";
@@ -17,9 +17,7 @@ interface PerfilHeaderProps {
 
 export const PerfilHeader = ({ user }: PerfilHeaderProps) => {
     const [openModal, setOpenModal] = useState<boolean>(false);
-    const [avatarSrc, setAvatarSrc] = useState<AvatarModel>(user.avatar);
-
-    const router = useRouter();
+    const [avatarSrc, setAvatarSrc] = useState<AvatarModel>(user.avatar || "");
 
     useEffect(() => {
         const handleFetchAvatar = async () => {
@@ -37,7 +35,8 @@ export const PerfilHeader = ({ user }: PerfilHeaderProps) => {
     };
 
     if (!avatarSrc) {
-        return null; // Ou um spinner de carregamento
+        setAvatarSrc(user.avatar);
+        return null;
     }
 
     return (
@@ -76,7 +75,7 @@ export const PerfilHeader = ({ user }: PerfilHeaderProps) => {
                         onClick={handleOpenModal}
                     >
                         <Image
-                            src={avatarSrc.pathname || ""}
+                            src={avatarSrc.pathname || user.avatar.pathname}
                             alt="Foto do perfil"
                             className={styles.perfil}
                             width={300}

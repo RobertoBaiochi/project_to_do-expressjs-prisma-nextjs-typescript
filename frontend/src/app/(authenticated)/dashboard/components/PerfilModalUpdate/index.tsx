@@ -12,6 +12,7 @@ import { updateUserNameById } from "@/services/api-requests/update-user-name-by-
 import { updateAvatarUser } from "@/services/api-requests/update-avatar-user";
 import { useRouter } from "next/navigation";
 import { logoutRemoveToken } from "@/services/api-requests/logout-remove-token";
+import { deleteUserAccount } from "@/services/api-requests/delete-user-account";
 
 interface PerfilModalUpdateProps {
     user: UserResponseModel;
@@ -86,6 +87,12 @@ export const PerfilModalUpdate = ({
     };
 
     const handleLogout = () => {
+        logoutRemoveToken();
+        router.push("/");
+    };
+
+    const handleDeleteUser = async () => {
+        await deleteUserAccount();
         logoutRemoveToken();
         router.push("/");
     };
@@ -185,7 +192,7 @@ export const PerfilModalUpdate = ({
                         type="button"
                         disabled={!isImageLoaded}
                         className={styles.delete_btn}
-                        onClick={handleLogout}
+                        onClick={handleDeleteUser}
                     >
                         Excluir Conta
                     </button>

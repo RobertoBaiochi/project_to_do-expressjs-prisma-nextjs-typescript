@@ -29,7 +29,7 @@ route.post("/create/user", createUserController);
 route.post("/login/user", authUserController);
 route.get("/me", isAuthenticated, detailsUserController);
 route.patch("/user/:id", isAuthenticated, updateUserController);
-route.delete("/user/:id", isAuthenticated, deleteUserController);
+route.delete("/user/", isAuthenticated, deleteUserController);
 
 // Tasks
 route.post("/task", isAuthenticated, createTaskController);
@@ -60,7 +60,5 @@ route.patch(
 );
 
 route.get("/avatar/:id", isAuthenticated, getAvatarByIdController);
-
-// http://localhost:3333/avatar/a21c5f46-1a4f-4fa0-9c44-ff456ffe52e2.png
 
 export default route;

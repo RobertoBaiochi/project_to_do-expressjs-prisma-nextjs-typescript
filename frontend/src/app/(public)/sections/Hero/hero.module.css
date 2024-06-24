@@ -1,0 +1,52 @@
+.hero_container {
+    width: 100%;
+    min-height: calc(80dvh - 8rem);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    padding-inline: 2rem;
+}
+
+.content_container {
+    max-width: 120rem;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    color: #fff;
+    gap: 3rem;
+}
+
+.title {
+    font-size: 4rem;
+}
+
+.letter {
+    color: #ffcd04;
+}
+
+.subtitle {
+    max-width: 40ch;
+    font-size: 2rem;
+    text-align: center;
+}
+
+.paragraph {
+    max-width: 90ch;
+    text-align: center;
+    font-size: 1.7rem;
+}
+
+.link {
+    padding: 1rem 2rem;
+    backdrop-filter: blur(13px);
+    border: 2px solid #ffcd04;
+    color: #fff;
+    border-radius: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+}

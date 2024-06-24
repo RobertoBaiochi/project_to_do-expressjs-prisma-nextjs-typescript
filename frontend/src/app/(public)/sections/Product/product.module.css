@@ -1,0 +1,74 @@
+.hero_container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: radial-gradient(rgb(35, 35, 35), rgb(0, 0, 0));
+    backdrop-filter: blur(20px);
+    padding-inline: 2rem;
+    position: relative;
+}
+
+.width_container {
+    max-width: 180rem;
+    width: 100%;
+    min-height: 100dvh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5rem;
+    z-index: 5;
+}
+
+.image_container {
+    width: 100%;
+    background: linear-gradient(45deg, rgb(78, 78, 78), rgb(33, 33, 33));
+    padding: 2rem;
+    border-radius: 1rem;
+    box-shadow: 0 8px 16px 4px rgb(0, 0, 0);
+}
+
+.image {
+    width: 100%;
+    height: auto;
+    border-radius: 0.5rem;
+}
+
+.content_container {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 5rem;
+    color: #fff;
+}
+
+.title {
+    font-size: 4rem;
+    width: 100%;
+}
+
+.subtitle {
+    width: 100%;
+    font-size: 2rem;
+}
+
+.list_container {
+    width: 100%;
+    list-style: square;
+    list-style-position: inside;
+}
+
+.list_style {
+    font-size: 1.8rem;
+}
+
+.list_style::marker {
+    color: rgb(255, 205, 4);
+    font-size: 3rem;
+}
+
+.paragraph {
+    width: 100%;
+    font-size: 1.7rem;
+}

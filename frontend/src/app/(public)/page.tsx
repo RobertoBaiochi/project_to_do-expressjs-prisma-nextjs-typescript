@@ -1,11 +1,17 @@
-import Link from "next/link";
 import styles from "./page.module.css";
+import { Header } from "./components/Header";
+import { Hero } from "./sections/Hero";
+import { Product } from "./sections/Product";
+import { Divisor } from "./sections/DivisorTop";
 
 export default function Home() {
     return (
-        <main className={styles.main}>
-            <h1>Landing Page Produto</h1>
-            <Link href={"/conta"}>Cadastrar</Link>
-        </main>
+        <>
+            <Header />
+            <main className={styles.main}>
+                <Hero />
+                <Product />
+            </main>
+        </>
     );
 }

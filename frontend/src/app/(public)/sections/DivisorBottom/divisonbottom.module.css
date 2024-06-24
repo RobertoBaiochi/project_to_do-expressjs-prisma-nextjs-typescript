@@ -1,0 +1,21 @@
+.custom_shape_divider_bottom {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+    transform: rotate(180deg);
+}
+
+.custom_shape_divider_bottom svg {
+    position: relative;
+    display: block;
+    width: calc(113% + 1.3px);
+    height: 150px;
+}
+
+.custom_shape_divider_bottom .shape_fill {
+    fill: rgba(125, 125, 125, 0.225);
+    /* fill: rgba(255, 205, 4, 0.4); */
+}

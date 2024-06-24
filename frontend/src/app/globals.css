@@ -58,7 +58,7 @@ body {
 
 body {
     font-size: 1.5rem;
-    background-image: url("/assets/imgs/teste1.webp");
+    background-image: url("/assets/imgs/bg_global.webp");
     background-color: rgba(0, 0, 0, 0.3);
     background-blend-mode: multiply;
     background-repeat: no-repeat;
@@ -67,17 +67,17 @@ body {
     background-position: right;
 }
 
-body::-webkit-scrollbar {
+*::-webkit-scrollbar {
     width: 1.2rem;
     margin-right: 2rem;
 }
 
-body::-webkit-scrollbar-track {
+*::-webkit-scrollbar-track {
     background: #403f3f;
-    border-radius: 0.5rem;
+    /* border-radius: 0.5rem; */
 }
 
-body::-webkit-scrollbar-thumb {
+*::-webkit-scrollbar-thumb {
     background: #ffcd04;
     border-radius: 0.5rem;
 }

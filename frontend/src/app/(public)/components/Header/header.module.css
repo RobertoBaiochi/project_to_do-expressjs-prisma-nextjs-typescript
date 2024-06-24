@@ -1,0 +1,16 @@
+.header_container {
+    width: 100%;
+    height: 8rem;
+    padding-inline: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    backdrop-filter: blur(7px);
+    border-bottom: 2px solid #ffcd04;
+}
+
+.navigation {
+    padding: 1rem 3rem;
+    background-color: #ffcd04;
+    border-radius: 1rem;
+}

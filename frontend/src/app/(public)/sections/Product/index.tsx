@@ -14,7 +14,10 @@ export const Product = () => {
                 </div>
 
                 <article className={styles.content_container}>
-                    <h1 className={styles.title}>Bem-vindo ao Bee Done</h1>
+                    <h1 className={styles.title}>
+                        Bem-vindo ao <span className={styles.letter}>B</span>e
+                        <span className={styles.letter}>e</span> Done
+                    </h1>
                     <h4 className={styles.subtitle}>
                         Sua nova ferramenta de organização de tarefas no estilo
                         Kanban. Inspirado na organização e eficiência das

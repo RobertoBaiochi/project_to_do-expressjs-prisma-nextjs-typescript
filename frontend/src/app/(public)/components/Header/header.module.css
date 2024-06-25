@@ -13,4 +13,15 @@
     padding: 1rem 3rem;
     background-color: #ffcd04;
     border-radius: 1rem;
+    color: #000;
+    font-weight: 600;
+    transition: all 300ms ease-in-out;
+}
+
+@media (hover: hover) {
+    .navigation:hover {
+        color: #fff;
+        filter: brightness(1.1);
+        background-color: #ff5804;
+    }
 }

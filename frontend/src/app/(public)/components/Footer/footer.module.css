@@ -1,0 +1,42 @@
+.footer_container {
+    width: 100%;
+    height: 8rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-inline: 2rem;
+    background: linear-gradient(to bottom, rgb(35, 35, 35), rgb(0, 0, 0));
+    color: #fff;
+    border-top: 2px solid #ffcd04;
+}
+
+.dev_container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+}
+
+.dev {
+    color: #ffcd04;
+    font-weight: 800;
+    transition: all 300ms ease-in-out;
+}
+
+.icon {
+    padding: 1rem;
+    border-radius: 1rem;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: #fff;
+    transition: all 300ms ease-in-out;
+}
+
+@media (hover: hover) {
+    .dev:hover {
+        color: #1ae0a5;
+    }
+
+    .icon:hover {
+        color: #ffcd04;
+    }
+}

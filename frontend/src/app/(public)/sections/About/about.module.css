@@ -1,0 +1,41 @@
+.about_container {
+    width: 100%;
+    min-height: 100dvh;
+    background-color: rgba(35, 35, 35, 0.9);
+    background-image: url("/assets/imgs/predio.webp");
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: 100%;
+    backdrop-filter: blur(5px);
+    background-blend-mode: overlay;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-inline: 2rem;
+}
+
+.content_container {
+    max-width: 120rem;
+    width: 100%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-direction: column;
+    gap: 3rem;
+    color: #fff;
+}
+
+.title {
+    font-size: 4rem;
+    width: 100%;
+}
+
+.paragraph {
+    max-width: 85ch;
+    text-align: left;
+    font-size: 1.7rem;
+}
+
+.letter {
+    color: rgb(255, 205, 4);
+}

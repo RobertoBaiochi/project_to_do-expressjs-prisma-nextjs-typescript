@@ -21,7 +21,7 @@ export const Hero = () => {
                 </p>
 
                 <Link href="/conta" className={styles.link}>
-                    Criar Conta <HiExternalLink size={18} color="#fff" />
+                    Criar conta <HiExternalLink size={20} color="#fff" />
                 </Link>
             </article>
         </section>

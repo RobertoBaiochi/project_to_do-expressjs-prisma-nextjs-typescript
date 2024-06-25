@@ -1,0 +1,48 @@
+.testimonial_container {
+    width: 100%;
+    min-height: 100dvh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 10rem;
+    background-color: rgba(35, 35, 35, 0.9);
+    background-image: url("/assets/imgs/testimonial.webp");
+    background-repeat: no-repeat;
+    background-size: contain;
+    backdrop-filter: blur(5px);
+    background-blend-mode: overlay;
+    padding: 4rem 2rem;
+}
+
+.content_container {
+    max-width: 120rem;
+    width: 100%;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    flex-direction: column;
+    gap: 3rem;
+    color: #fff;
+}
+
+.title {
+    font-size: 4rem;
+    z-index: 7;
+}
+
+.subtitle {
+    max-width: 65ch;
+    text-align: right;
+}
+
+.card_grid_container {
+    max-width: 120rem;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(20rem, 1fr));
+    gap: 4rem;
+}
+
+.letter {
+    color: #ffcd04;
+}

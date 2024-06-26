@@ -5,9 +5,6 @@ export const updateUserNameById = async (userId: string, name: string) => {
     try {
         const token = Cookies.get("token");
 
-        console.log(userId);
-        console.log(name);
-
         const response = await apiClient
             .patch(
                 `/user/${userId}`,

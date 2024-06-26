@@ -21,6 +21,7 @@
 
 .title {
     font-size: 4rem;
+    text-align: center;
 }
 
 .letter {
@@ -45,6 +46,7 @@
     border: 2px solid #ffcd04;
     color: #fff;
     border-radius: 1rem;
+    font-size: 1.7rem;
     display: flex;
     align-items: center;
     justify-content: center;

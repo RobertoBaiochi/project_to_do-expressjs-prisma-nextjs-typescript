@@ -20,7 +20,7 @@
 
 .title {
     text-align: center;
-    font-size: 2.5rem;
+    font-size: 1.8rem;
 }
 
 .link {
@@ -40,5 +40,19 @@
     .link:hover {
         filter: brightness(1.1);
         transform: scale(1.05);
+    }
+}
+
+@media (min-width: 600px) {
+    .title {
+        text-align: center;
+        font-size: 2rem;
+    }
+}
+
+@media (min-width: 900px) {
+    .title {
+        text-align: center;
+        font-size: 2.5rem;
     }
 }

@@ -6,9 +6,7 @@ import { FaLinkedinIn } from "react-icons/fa";
 export const Footer = () => {
     return (
         <footer className={styles.footer_container}>
-            <div>
-                <p>Todos os direitos reservados - © Bee Done</p>
-            </div>
+            <p>Todos os direitos reservados - © Bee Done</p>
 
             <div className={styles.dev_container}>
                 <p>Desenvolvido por:</p>
@@ -19,21 +17,24 @@ export const Footer = () => {
                 >
                     Roberto Baiochi
                 </Link>
-                <Link
-                    href={"https://github.com/RobertoBaiochi"}
-                    target="_blank"
-                    className={styles.icon}
-                >
-                    <FaGithub size={20} />
-                </Link>
 
-                <Link
-                    href={"https://www.linkedin.com/in/roberto-baiochi/"}
-                    target="_blank"
-                    className={styles.icon}
-                >
-                    <FaLinkedinIn size={20} />
-                </Link>
+                <div className={styles.btns_container}>
+                    <Link
+                        href={"https://github.com/RobertoBaiochi"}
+                        target="_blank"
+                        className={styles.icon}
+                    >
+                        <FaGithub size={20} />
+                    </Link>
+
+                    <Link
+                        href={"https://www.linkedin.com/in/roberto-baiochi/"}
+                        target="_blank"
+                        className={styles.icon}
+                    >
+                        <FaLinkedinIn size={20} />
+                    </Link>
+                </div>
             </div>
         </footer>
     );

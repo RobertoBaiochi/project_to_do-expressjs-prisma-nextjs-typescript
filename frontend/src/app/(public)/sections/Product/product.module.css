@@ -4,7 +4,7 @@
     justify-content: center;
     background: radial-gradient(rgb(35, 35, 35), rgb(0, 0, 0));
     backdrop-filter: blur(20px);
-    padding-inline: 2rem;
+    padding: 4rem 2rem;
     position: relative;
 }
 
@@ -15,6 +15,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-direction: column;
     gap: 5rem;
     z-index: 5;
 }
@@ -22,7 +23,7 @@
 .image_container {
     width: 100%;
     background: linear-gradient(45deg, rgb(78, 78, 78), rgb(33, 33, 33));
-    padding: 2rem;
+    padding: 1rem;
     border-radius: 1rem;
     box-shadow: 0 8px 16px 4px rgb(0, 0, 0);
 }
@@ -75,4 +76,19 @@
 
 .letter {
     color: rgb(255, 205, 4);
+}
+
+@media (min-width: 600px) {
+    .image_container {
+        padding: 2rem;
+    }
+}
+
+@media (min-width: 1000px) {
+    .hero_container {
+        padding: 0rem 2rem;
+    }
+    .width_container {
+        flex-direction: row;
+    }
 }

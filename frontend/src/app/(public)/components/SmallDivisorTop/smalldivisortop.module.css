@@ -1,6 +1,6 @@
 .custom_shape_divider_bottom {
     position: absolute;
-    top: -80px;
+    top: -30px;
     left: 0;
     width: 100%;
     overflow: hidden;
@@ -13,11 +13,21 @@
     position: relative;
     display: block;
     width: calc(100% + 1.3px);
-    height: 80px;
+    height: 30px;
     z-index: 1;
 }
 
 .custom_shape_divider_bottom .shape_fill {
     fill: #ffcd04;
     z-index: 1;
+}
+
+@media (min-width: 900px) {
+    .custom_shape_divider_bottom {
+        top: -80px;
+    }
+
+    .custom_shape_divider_bottom svg {
+        height: 80px;
+    }
 }

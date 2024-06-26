@@ -1,19 +1,26 @@
 .footer_container {
     width: 100%;
-    height: 8rem;
+    min-height: 8rem;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding-inline: 2rem;
+    flex-direction: column;
+    padding: 4rem 2rem;
+    gap: 2rem;
     background: linear-gradient(to bottom, rgb(35, 35, 35), rgb(0, 0, 0));
     color: #fff;
     border-top: 2px solid #ffcd04;
+}
+
+.footer_container p {
+    text-align: center;
 }
 
 .dev_container {
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-direction: column;
     gap: 2rem;
 }
 
@@ -21,6 +28,13 @@
     color: #ffcd04;
     font-weight: 800;
     transition: all 300ms ease-in-out;
+}
+
+.btns_container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
 }
 
 .icon {
@@ -38,5 +52,19 @@
 
     .icon:hover {
         color: #ffcd04;
+    }
+}
+
+@media (min-width: 800px) {
+    .footer_container {
+        padding: 0rem 2rem;
+    }
+
+    .footer_container {
+        flex-direction: row;
+    }
+
+    .dev_container {
+        flex-direction: row;
     }
 }

@@ -45,7 +45,7 @@ export const TasksColumns = ({
             {openModalDescription && (
                 <Modal
                     setOpenModal={setOpenModalDescription}
-                    titleModal="Description Task"
+                    titleModal="Descrição da Tarefa"
                     key={"description"}
                 >
                     <DescriptionTaskModal taskId={activeId} />
@@ -55,7 +55,7 @@ export const TasksColumns = ({
             {openModalUpdate && (
                 <Modal
                     setOpenModal={setOpenModalUpdate}
-                    titleModal="Update Task"
+                    titleModal="Atualizar Tarefa"
                     key={"update"}
                 >
                     <UpdateTaskModal

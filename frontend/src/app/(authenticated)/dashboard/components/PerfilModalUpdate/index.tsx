@@ -164,7 +164,7 @@ export const PerfilModalUpdate = ({
                         className={styles.cancel_btn}
                         onClick={handleCancel}
                     >
-                        Cancel
+                        Cancelar
                     </button>
                 </div>
             </form>

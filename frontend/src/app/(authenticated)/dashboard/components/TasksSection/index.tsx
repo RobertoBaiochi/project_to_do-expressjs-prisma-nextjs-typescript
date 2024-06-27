@@ -41,7 +41,7 @@ export const TasksSection = ({
     return (
         <section className={styles.section_container}>
             <TasksColumns
-                title="🎯 To-do"
+                title="🎯 To do"
                 tasks={todoTasks}
                 status="TODO"
                 setActiveId={setActiveId}

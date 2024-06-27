@@ -23,7 +23,7 @@ export const DropArea = ({ handleOnDrop, children }: DropAreaProps) => {
             onDrop={handle}
             onDragOver={(e) => e.preventDefault()}
         >
-            {children || "Drag here"}
+            {children || "Solte aqui"}
         </div>
     );
 };

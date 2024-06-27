@@ -75,7 +75,7 @@ export const UpdateTaskModal = ({
         >
             <div className={styles.container_double_inputs}>
                 <div className={styles.container_label}>
-                    <label>Task:</label>
+                    <label>Tarefa:</label>
                     <input
                         type="text"
                         id="title"
@@ -100,7 +100,7 @@ export const UpdateTaskModal = ({
             </div>
 
             <div className={styles.container_textarea}>
-                <label>Description:</label>
+                <label>Descrição:</label>
                 <textarea
                     className={styles.input_textarea}
                     {...register("description")}
@@ -108,7 +108,7 @@ export const UpdateTaskModal = ({
             </div>
             <div className={styles.container_actions}>
                 <button type="submit" className={styles.btn_submit}>
-                    Submit
+                    Salvar
                 </button>
 
                 <button
@@ -116,7 +116,7 @@ export const UpdateTaskModal = ({
                     className={styles.btn_cancel}
                     onClick={handleCancelUpdate}
                 >
-                    Cancel
+                    Cancelar
                 </button>
             </div>
         </form>

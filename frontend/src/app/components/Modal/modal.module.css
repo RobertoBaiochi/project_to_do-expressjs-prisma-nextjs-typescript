@@ -9,7 +9,7 @@
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    position: absolute;
+    position: fixed;
     padding: 4rem;
     top: 0; /* Isso aqui*/
     right: 0;

@@ -12,7 +12,7 @@ export const EmptyTasks = () => {
                 height={300}
                 className={styles.image}
             />
-            <h4 className={styles.text}>No tasks </h4>
+            <h4 className={styles.text}>Alguma tarefa hoje?</h4>
         </article>
     );
 };

@@ -2,11 +2,9 @@
 
 ## 🧠 Sobre o projeto:
 
-A ideia do projeto surgiu porque utilizo diariamente um software organizador de tarefas e por curiosidade comecei a pensar em como funcionaria ou como desenvolveria algo desse estilo.
-Então aproveitei para fazer um produto da forma mais completa que conseguiria em um prazo de 1 mês, tendo uma **_Landing Page_** de apresentação, um página e como sistema de **_Criação de Conta e Login_** e o _**Dashboard**_ onde funcionaria o Kanban com _**Drag and Drop**_.
-Com isso, veio a ideia do nome **Bee Done**.
+A ideia do projeto surgiu do meu uso diário de um software organizador de tarefas. Motivado pela curiosidade, comecei a pensar em como poderia desenvolver algo semelhante. Decidi criar um produto completo em um prazo de um mês, incluindo uma **_landing page_** de apresentação, um **_sistema de criação de conta e login_**, e um **_dashboard_** com funcionalidade de Kanban e drag-and-drop. Assim, nasceu a ideia e o nome **Bee Done**.
 
-_O Logotipo e os textos foram criado a partir de IA_.
+_O logotipo e os textos foram gerados com a ajuda de inteligência artificial._
 
 ## 📖 Descrição:
 

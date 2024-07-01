@@ -18,7 +18,7 @@ import { getTasksDoneController } from "./controllers/task/get-tasks-done-status
 import { getTasksDoingController } from "./controllers/task/get-tasks-doing-status-controller";
 import { getTasksTodoController } from "./controllers/task/get-tasks-todo-status-controller";
 import { updateTaskIndexController } from "./controllers/task/update-index-task-controller";
-import { updateAvatarController } from "./controllers/user/update-avatar-controller";
+import { updateAvatarController } from "./controllers/avatar/update-avatar-controller";
 import { getAvatarByIdController } from "./controllers/avatar/get-avatar-by-id-controller";
 
 const route = Router();

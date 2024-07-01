@@ -1,0 +1,907 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "API Bee Done",
+        "description": "API do projeto BEE DONE.",
+        "contact": {
+            "name": "Support",
+            "email": "contato@robertobaiochi.dev.br"
+        },
+        "version": "0.1.0"
+    },
+    "servers": [
+        {
+            "url": "http://localhost:3333/api",
+            "description": "Servidor local"
+        }
+    ],
+    "components": {
+        "securitySchemes": {
+            "bearerAuth": {
+                "type": "http",
+                "scheme": "bearer",
+                "bearerFormat": "JWT"
+            }
+        },
+        "schemas": {
+            "CreateUser": {
+                "type": "object",
+                "properties": {
+                    "email": {
+                        "type": "string",
+                        "description": "Digite seu e-mail"
+                    },
+                    "password": {
+                        "type": "string",
+                        "description": "Digite uma senha"
+                    }
+                }
+            },
+            "ResponseCreateUser": {
+                "type": "object",
+                "properties": {
+                    "message": {
+                        "type": "string",
+                        "description": "Usuário criado com sucesso"
+                    }
+                }
+            },
+            "LoginUser": {
+                "type": "object",
+                "properties": {
+                    "email": {
+                        "type": "string",
+                        "description": "O e-mail que você criou"
+                    },
+                    "password": {
+                        "type": "string",
+                        "description": "Digite sua senha"
+                    }
+                }
+            },
+            "ResponseLoginUser": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "string"
+                    },
+                    "email": {
+                        "type": "string"
+                    },
+                    "token": {
+                        "type": "string",
+                        "description": "Copie seu token para autorizar o acesso das outras rotas"
+                    }
+                }
+            },
+            "ResponseVerifyToken": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "string"
+                    },
+                    "email": {
+                        "type": "string"
+                    },
+                    "password": {
+                        "type": "string"
+                    },
+                    "avatar": {
+                        "type": "object",
+                        "properties": {
+                            "id": {
+                                "type": "string"
+                            },
+                            "pathname": {
+                                "type": "string"
+                            },
+                            "userId": {
+                                "type": "string"
+                            }
+                        }
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "task": {
+                        "type": "array",
+                        "properties": {
+                            "id": {
+                                "type": "string"
+                            },
+                            "title": {
+                                "type": "string"
+                            },
+                            "description": {
+                                "type": "string"
+                            },
+                            "status": {
+                                "type": "string",
+                                "enum": ["TODO", "DOING", "DONE"]
+                            },
+                            "index": {
+                                "type": "number"
+                            }
+                        }
+                    }
+                }
+            },
+            "UpdateNameUser": {
+                "type": "string",
+                "properties": {
+                    "name": {
+                        "type": "string",
+                        "description": "digite seu nome"
+                    }
+                }
+            },
+            "ResponseUpdateNameUser": {
+                "type": "object",
+                "properties": {
+                    "message": {
+                        "type": "string"
+                    }
+                }
+            },
+            "ResponseDeleteUser": {
+                "type": "object",
+                "properties": {
+                    "message": {
+                        "type": "string"
+                    }
+                }
+            },
+            "CreateTask": {
+                "type": "object",
+                "properties": {
+                    "title": {
+                        "type": "string",
+                        "description": "Título da tarefa"
+                    }
+                }
+            },
+            "ResponseTasksUser": {
+                "type": "array",
+                "properties": {
+                    "type": "object",
+                    "properties": {
+                        "id": {
+                            "type": "string"
+                        },
+                        "title": {
+                            "type": "string"
+                        },
+                        "description": {
+                            "type": ["string", null]
+                        },
+                        "status": {
+                            "type": ["TODO", "DOING", "DONE"]
+                        },
+                        "index": {
+                            "type": "number"
+                        }
+                    }
+                }
+            },
+            "ResponseUniqueTaskById": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "string"
+                    },
+                    "title": {
+                        "type": "string"
+                    },
+                    "description": {
+                        "type": ["string", null]
+                    },
+                    "status": {
+                        "type": ["TODO", "DOING", "DONE"]
+                    },
+                    "index": {
+                        "type": "number"
+                    }
+                }
+            },
+            "RequireTaskById": {
+                "type": "object",
+                "properties": {
+                    "title": {
+                        "type": "string"
+                    },
+                    "description": {
+                        "type": "string"
+                    }
+                }
+            },
+            "ResponseTaskById": {
+                "type": "object",
+                "properties": {
+                    "message": {
+                        "type": "string"
+                    }
+                }
+            },
+            "RequireAlterStatusTasks": {
+                "type": "object",
+                "properties": {
+                    "status": {
+                        "type": "string",
+                        "enum": ["TODO", "DOING", "DONE"]
+                    }
+                }
+            },
+            "ResponseUserAvatarById": {
+                "type": "object",
+                "properties": {
+                    "pathname": {
+                        "type": "string"
+                    }
+                }
+            },
+            "RequireUpdateAvatar": {
+                "type": "object",
+                "properties": {
+                    "file": {
+                        "type": "object",
+                        "format": "binary",
+                        "properies": {
+                            "filename": {
+                                "type": "string"
+                            }
+                        }
+                    }
+                }
+            },
+            "ResponseUpdateAvatar": {
+                "type": "object",
+                "properties": {
+                    "message": {
+                        "type": "string"
+                    }
+                }
+            },
+            "EmptyArray": {
+                "type": "array",
+                "items": {
+                    "type": "string"
+                },
+                "example": "[]"
+            }
+        },
+        "security": [
+            {
+                "bearerAuth": []
+            }
+        ]
+    },
+    "paths": {
+        "/create/user": {
+            "post": {
+                "tags": ["Autenticação"],
+                "summary": "Criar um usuário",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/CreateUser"
+                            },
+                            "example": {
+                                "email": "@email.com",
+                                "password": "123123123"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Usuário criado com sucesso",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ResponseCreateUser"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Esse usuário já existe"
+                    }
+                }
+            }
+        },
+        "/login/user": {
+            "post": {
+                "tags": ["Autenticação"],
+                "summary": "Login de usuário criado",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/LoginUser"
+                            },
+                            "example": {
+                                "email": "@email.com",
+                                "password": "123123123"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Login feito com sucesso",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ResponseLoginUser"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "E-mail ou senha inválido"
+                    }
+                }
+            }
+        },
+        "/me": {
+            "get": {
+                "tags": ["Autenticação"],
+                "summary": "Validação do Token",
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Token Validado",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ResponseVerifyToken"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Acesso não autorizado"
+                    }
+                }
+            }
+        },
+        "/user": {
+            "get": {
+                "tags": ["Usuário"],
+                "summary": "Listar todos os usuários",
+                "responses": {
+                    "200": {
+                        "description": "Todos os clientes encontrados",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ResponseClients"
+                                }
+                            }
+                        }
+                    },
+                    "201": {
+                        "description": "[]"
+                    }
+                }
+            },
+            "delete": {
+                "tags": ["Usuário"],
+                "summary": "Deletar o usuário por Token",
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Deletado com sucesso",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ResponseDeleteUser"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "O cliente não existe"
+                    },
+                    "401": {
+                        "description": "Acesso não autorizado"
+                    }
+                }
+            }
+        },
+        "/user/{id}": {
+            "patch": {
+                "tags": ["Usuário"],
+                "summary": "Alterar Nome do usuário pelo seu ID",
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ],
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/UpdateNameUser"
+                            },
+                            "example": {
+                                "name": "Novo nome"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Alteração feita com sucesso",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ResponseUpdateNameUser"
+                                }
+                            }
+                        }
+                    },
+                    "204": {
+                        "description": "no content"
+                    },
+                    "401": {
+                        "description": "Acesso não autorizado"
+                    },
+                    "404": {
+                        "description": "Todos os campos devem ser preenchidos"
+                    }
+                }
+            }
+        },
+        "/task": {
+            "post": {
+                "tags": ["Tarefas"],
+                "summary": "Adicionar uma nova tarefa",
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/CreateTask"
+                            },
+                            "example": {
+                                "title": "Refatorar Services da API"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Tarefa criada com sucesso",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ResponseVisit"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Título deve ser preenchido"
+                    },
+                    "401": {
+                        "description": "Acesso não autorizado"
+                    }
+                }
+            },
+            "get": {
+                "tags": ["Tarefas"],
+                "summary": "Listar todas as tarefas do usuário",
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Todas as tarefas do usuário",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ResponseTasksUser"
+                                }
+                            }
+                        }
+                    },
+                    "204": {
+                        "description": "ainda não possuí tarefas"
+                    },
+                    "401": {
+                        "description": "Acesso não autorizado"
+                    }
+                }
+            }
+        },
+        "/task/{id}": {
+            "get": {
+                "tags": ["Tarefas"],
+                "summary": "Listar uma única tarefa por ID da Tarefa",
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ],
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Tarefa Encontrada",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ResponseUniqueTaskById"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "A tarefa não existe"
+                    }
+                }
+            },
+            "patch": {
+                "tags": ["Tarefas"],
+                "summary": "Atualizar titulo e descrição da tarefa por seu ID",
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ],
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/RequireTaskById"
+                            },
+                            "example": {
+                                "title": "Organização da arquitetura",
+                                "description": "Terminar a tarefa e fazer o commit"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Alteração feita com sucesso",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ResponseTaskById"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Todos os campos devem ser preenchidos ID e/ou Title"
+                    }
+                }
+            },
+
+            "delete": {
+                "tags": ["Tarefas"],
+                "summary": "Deletar a Tarefa pelo seu ID",
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ],
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Tarefa deletada com sucesso",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ResponseTaskById"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "A Tarefa não existe"
+                    }
+                }
+            }
+        },
+        "/taskstatus/{id}": {
+            "patch": {
+                "tags": ["Tarefas"],
+                "summary": "Atualiza status da tarefa",
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ],
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/RequireAlterStatusTasks"
+                            },
+                            "example": {
+                                "status": "choose between TODO or DOING and DONE status"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Status Atualizado",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ResponseTaskById"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "A tarefa não existe"
+                    }
+                }
+            }
+        },
+        "/todo/task": {
+            "get": {
+                "tags": ["Tarefas"],
+                "summary": "Listar todos as Tarefas com Status TODO",
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Todos as tarefas com status TODO encontrados",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ResponseTasksUser"
+                                }
+                            }
+                        }
+                    },
+                    "204": {
+                        "description": "Nenhuma tarefa com status TODO encontrada",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/EmptyArray"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/doing/task": {
+            "get": {
+                "tags": ["Tarefas"],
+                "summary": "Listar todos as Tarefas com Status DOING",
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Todos as tarefas com status DOING encontrados",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ResponseTasksUser"
+                                }
+                            }
+                        }
+                    },
+                    "204": {
+                        "description": "Nenhuma tarefa com status TODO encontrada",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/EmptyArray"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/done/task": {
+            "get": {
+                "tags": ["Tarefas"],
+                "summary": "Listar todos as Tarefas com Status DONE",
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Todos as tarefas com status DONE encontrados",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ResponseTasksUser"
+                                }
+                            }
+                        }
+                    },
+                    "204": {
+                        "description": "Nenhuma tarefa com status TODO encontrada",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/EmptyArray"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/avatar/{id}": {
+            "get": {
+                "tags": ["Avatar"],
+                "summary": "Busca a imagem de Avatar por seu ID",
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ],
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Imagem encontrada",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ResponseUserAvatarById"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "A Imagem não existe"
+                    }
+                }
+            }
+        },
+        "/upload/{id}": {
+            "patch": {
+                "tags": ["Avatar"],
+                "summary": "Upload de Imagem",
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "image/png": {
+                            "schema": {
+                                "$ref": "#/components/schemas/RequireUpdateAvatar"
+                            }
+                        },
+                        "image/jpg": {
+                            "schema": {
+                                "$ref": "#/components/schemas/RequireUpdateAvatar"
+                            }
+                        },
+                        "image/jpeg": {
+                            "schema": {
+                                "$ref": "#/components/schemas/RequireUpdateAvatar"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Alteração feita com sucesso",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ResponseUpdateAvatar"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "O cliente não existe"
+                    }
+                }
+            }
+        }
+    }
+}

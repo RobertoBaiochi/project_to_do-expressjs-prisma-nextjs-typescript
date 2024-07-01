@@ -1,4 +1,4 @@
-import { updateAvatarRepository } from "../../respositories/user/update-avatar-repository";
+import { updateAvatarRepository } from "../../respositories/avatar/update-avatar-repository";
 import * as HttpResponse from "../../utils/http-helper";
 
 export const updateAvatarService = async (

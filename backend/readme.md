@@ -72,3 +72,5 @@ npm run start:watch
 ```bash
 npm run start:dist
 ```
+
+https://swagger.io/docs/specification/2-0/file-upload/

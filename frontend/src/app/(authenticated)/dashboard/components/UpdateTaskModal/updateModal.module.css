@@ -10,7 +10,8 @@
 .container_double_inputs {
     width: 100%;
     display: flex;
-    align-items: center;
+    align-items: flex-start;
+    flex-direction: column;
     justify-content: space-between;
     gap: 2rem;
 }
@@ -26,7 +27,7 @@
 }
 
 .container_select {
-    width: 30%;
+    width: 100%;
     display: flex;
     align-items: center;
     justify-content: flex-start;
@@ -103,11 +104,27 @@
     display: flex;
     align-items: center;
     justify-content: space-evenly;
+    gap: 2rem;
 }
 
 @media (hover: hover) {
     .btn_submit:hover {
-        background-color: #c8700b;
-        color: #fff;
+        filter: brightness(1.1);
+        transform: scale(1.05);
+    }
+    .btn_cancel:hover {
+        background-color: #606060;
+        transform: scale(1.05);
+    }
+}
+
+@media (min-width: 600px) {
+    .container_double_inputs {
+        align-items: center;
+        flex-direction: row;
+    }
+
+    .container_select {
+        width: 30%;
     }
 }

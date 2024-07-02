@@ -13,7 +13,7 @@ import { updateAvatarUser } from "@/services/api-requests/update-avatar-user";
 import { useRouter } from "next/navigation";
 import { logoutRemoveToken } from "@/services/api-requests/logout-remove-token";
 import { deleteUserAccount } from "@/services/api-requests/delete-user-account";
-
+import { toast } from "react-toastify";
 interface PerfilModalUpdateProps {
     user: UserResponseModel;
     setOpenModal: Dispatch<SetStateAction<boolean>>;
@@ -87,11 +87,13 @@ export const PerfilModalUpdate = ({
     };
 
     const handleLogout = () => {
+        toast.info("Você saiu da conta.");
         logoutRemoveToken();
         router.push("/");
     };
 
     const handleDeleteUser = async () => {
+        toast.success("Conta deletada com sucesso.");
         await deleteUserAccount();
         logoutRemoveToken();
         router.push("/");

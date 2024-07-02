@@ -8,7 +8,7 @@ import { UserResponseModel } from "@/app/Models/UserReponseModel";
 import { EmptyTasks } from "./components/EmptyTasks";
 
 export default async function Dashboard() {
-    const user: UserResponseModel = await getUserDetails();
+    const user: UserResponseModel = (await getUserDetails()) || [];
     const todoTask = (await getTasksByStatus("todo")) || [];
     const doingTask = (await getTasksByStatus("doing")) || [];
     const doneTask = (await getTasksByStatus("done")) || [];

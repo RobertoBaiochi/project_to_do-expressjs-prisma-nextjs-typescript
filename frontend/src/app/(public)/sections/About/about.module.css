@@ -40,7 +40,7 @@
     color: rgb(255, 205, 4);
 }
 
-@media (min-width: 800px) {
+@media (min-width: 1200px) {
     .about_container {
         background-size: contain;
     }

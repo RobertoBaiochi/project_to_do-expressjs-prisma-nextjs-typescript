@@ -23,11 +23,13 @@ import { getAvatarByIdController } from "./controllers/avatar/get-avatar-by-id-c
 
 const route = Router();
 
-// Users
-route.get("/user", getAllUsersController);
+//Authentication
 route.post("/create/user", createUserController);
 route.post("/login/user", authUserController);
 route.get("/me", isAuthenticated, detailsUserController);
+
+// Users
+route.get("/user", getAllUsersController);
 route.patch("/user/:id", isAuthenticated, updateUserController);
 route.delete("/user/", isAuthenticated, deleteUserController);
 

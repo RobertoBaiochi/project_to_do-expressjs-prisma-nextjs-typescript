@@ -2,7 +2,7 @@
     "openapi": "3.0.0",
     "info": {
         "title": "API Bee Done",
-        "description": "API do projeto BEE DONE.",
+        "description": "No Bee Done, cada usuário lida com suas próprias tarefas, imagem e nome. O relacionamento das tabelas são através do ID do usuário.",
         "contact": {
             "name": "Support",
             "email": "contato@robertobaiochi.dev.br"
@@ -387,8 +387,8 @@
                             }
                         }
                     },
-                    "201": {
-                        "description": "[]"
+                    "204": {
+                        "description": "Nenhum usuário encontrado"
                     }
                 }
             },

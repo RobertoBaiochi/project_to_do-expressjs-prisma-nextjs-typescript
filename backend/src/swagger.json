@@ -267,6 +267,23 @@
                     "type": "string"
                 },
                 "example": "[]"
+            },
+            "ResponseAllUsers": {
+                "type": "array",
+                "items": {
+                    "type": "object",
+                    "properties": {
+                        "id": {
+                            "type": "string"
+                        },
+                        "email": {
+                            "type": "string"
+                        },
+                        "password": {
+                            "type": "string"
+                        }
+                    }
+                }
             }
         },
         "security": [
@@ -378,11 +395,11 @@
                 "summary": "Listar todos os usuários",
                 "responses": {
                     "200": {
-                        "description": "Todos os clientes encontrados",
+                        "description": "Todos os usuários encontrados",
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/ResponseClients"
+                                    "$ref": "#/components/schemas/ResponseAllUsers"
                                 }
                             }
                         }
@@ -412,7 +429,7 @@
                         }
                     },
                     "404": {
-                        "description": "O cliente não existe"
+                        "description": "O usuário não existe"
                     },
                     "401": {
                         "description": "Acesso não autorizado"
@@ -898,7 +915,7 @@
                         }
                     },
                     "404": {
-                        "description": "O cliente não existe"
+                        "description": "O usuário não existe"
                     }
                 }
             }

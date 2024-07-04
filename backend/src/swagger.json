@@ -160,6 +160,14 @@
                     }
                 }
             },
+            "ResponseCreatedTask": {
+                "type": "object",
+                "properties": {
+                    "message": {
+                        "type": "string"
+                    }
+                }
+            },
             "ResponseTasksUser": {
                 "type": "array",
                 "properties": {
@@ -520,7 +528,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/ResponseVisit"
+                                    "$ref": "#/components/schemas/ResponseCreatedTask"
                                 }
                             }
                         }
